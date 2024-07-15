@@ -3,12 +3,10 @@ import { FaSearch } from 'react-icons/fa'
 import './nav.css'
 import Modal from './Modal'
 
-function Nav({ cities, selectedCity, guestCount, onCitySelect, onGuestSelect }) {
+function Nav({ cities, selectedCity, onCitySelect }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('location');
 
-  const handleOpenModal = (tab) => {
-    setActiveTab(tab);
+  const handleOpenModal = () => {
     setIsModalOpen(true);
   }
 
@@ -22,12 +20,8 @@ function Nav({ cities, selectedCity, guestCount, onCitySelect, onGuestSelect }) 
         <img src="./logo.svg" alt="logo"/>
       </div>
       <div className="search-bar">
-        <div className="search-item" onClick={() => handleOpenModal('location')}>
-          {selectedCity || 'Add location'}
-        </div>
-        <div className="search-item" onClick={() => handleOpenModal('guests')}>
-          {guestCount > 0 ? `${guestCount} guests` : 'Add guests'}
-        </div>
+        <div className="search-item" onClick={handleOpenModal}>{selectedCity || 'Add location'}</div>
+        <div className="search-item">Add guests</div>
         <button className="search-button">
           <FaSearch className="search-icon" />
         </button>
@@ -37,8 +31,7 @@ function Nav({ cities, selectedCity, guestCount, onCitySelect, onGuestSelect }) 
         onClose={handleCloseModal}
         cities={cities}
         onSelectCity={onCitySelect}
-        onSelectGuests={onGuestSelect}
-        activeTab={activeTab}
+        selectedCity={selectedCity}
       />
     </nav>
   );
