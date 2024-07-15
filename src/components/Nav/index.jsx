@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import './nav.css'
-import Modal from '../Modal'
+import Modal from './Modal'
 
 function Nav({ cities, selectedCity, guestCount, onCitySelect, onGuestSelect }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
