@@ -5,8 +5,9 @@ import './App.css'
 
 function App() {
   const [stays, setStays] = useState([]);
-  const [selectedCity, setSelectedCity] = useState('');
   const [filteredStays, setFilteredStays] = useState([]);
+  const [selectedCity, setSelectedCity] = useState('');
+  const [guestCount, setGuestCount] = useState(0);
 
   const fetchStays = async () => {
     try {
@@ -24,30 +25,39 @@ function App() {
   }, []);
 
   useEffect(() => {
+    let filtered = stays;
     if (selectedCity) {
       const [city, country] = selectedCity.split(', ');
-      const filtered = stays.filter(stay => stay.city === city && stay.country === country);
-      setFilteredStays(filtered);
-    } else {
-      setFilteredStays(stays);
+      filtered = filtered.filter(stay => stay.city === city && stay.country === country);
     }
-  }, [selectedCity, stays]);
-
-  const cities = [...new Set(stays.map(stay => `${stay.city}, ${stay.country}`))];
+    if (guestCount > 0) {
+      filtered = filtered.filter(stay => stay.maxGuests >= guestCount);
+    }
+    setFilteredStays(filtered);
+  }, [selectedCity, guestCount, stays]);
 
   const handleCitySelect = (city) => {
     setSelectedCity(city);
   }
+
+  const handleGuestSelect = (count) => {
+    setGuestCount(count);
+  }
+
+  const cities = [...new Set(stays.map(stay => `${stay.city}, ${stay.country}`))];
 
   return (
     <div className="app">
       <Nav 
         cities={cities}
         selectedCity={selectedCity}
+        guestCount={guestCount}
         onCitySelect={handleCitySelect}
+        onGuestSelect={handleGuestSelect}
       />
       <main>
         <h1>Stays in {selectedCity || 'Finland'}</h1>
+        <p>{filteredStays.length} stays</p>
         <div className="card-container">
           {filteredStays.map((stay) => (
             <Card key={stay.title} stay={stay} />
