@@ -1,0 +1,90 @@
+/* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.app h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(395px, 1fr));
+    gap: 20px;
+    justify-content: center;
+  }
+  @media (max-width: 1200px) {
+    .card-container {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+
+.card {
+  width: 100%;
+}
+
+.card-image {
+  width: 100%;
+  height: 269px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.card-info {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.star {
+  color: #EB5757;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.superhost-badge {
+  background-color: #fff;
+  color: #4F4F4F;
+  border: 1px solid #4F4F4F;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.stay-type, .beds {
+  color: #828282;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.rating {
+  color: #4F4F4F;
+  font-size: 14px;
+  margin-left: auto;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 10px;
+}
