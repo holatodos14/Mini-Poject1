@@ -1,132 +1,126 @@
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 50px;
-  }
-  
-  .modal-content {
-    background-color: #FFFFFF;
-    width: 100%;
-    max-width: 1440px;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-  }
-  
-  .modal-search-bar {
-    display: flex;
-    width: 100%;
-    max-width: 1248px;
-    height: 55px;
-    margin: 0 auto;
-    background-color: #FFFFFF;
-    border-radius: 16px;
-    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .search-item {
-    flex: 1;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .search-item.active {
-    background-color: #f7f7f7;
-  }
-  
-  .search-item label {
-    display: block;
-    font-size: 9px;
-    font-weight: 800;
-    color: #333;
-    margin-bottom: 4px;
-    text-transform: uppercase;
-  }
-  
-  .search-item input {
-    width: 100%;
-    border: none;
-    font-size: 14px;
-    font-weight: 400;
-    color: #333;
-    background: transparent;
-  }
-  
-  
-  .search-button svg {
-    margin-right: 10px;
-  }
-  
-  .city-list {
-    margin-top: 40px;
-    padding: 0 96px;
-  }
-  
-  .city-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .city-item:hover {
-    background-color: #f7f7f7;
-  }
-  
-  .city-item svg {
-    margin-right: 10px;
-    color: #4F4F4F;
-  }
-  
-  .guests-selector {
-    margin-top: 40px;
-    padding: 0 96px;
-  }
-  
-  .guest-type {
-    margin-bottom: 40px;
-  }
-  
-  .guest-type h3 {
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-  
-  .guest-type p {
-    font-size: 14px;
-    color: #828282;
-    margin-bottom: 12px;
-  }
-  
-  .guest-counter {
-    display: flex;
-    align-items: center;
-  }
-  
-  .guest-counter button {
-    width: 23px;
-    height: 23px;
-    border: 1px solid #828282;
-    background-color: white;
-    color: #828282;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  
-  .guest-counter span {
-    margin: 0 16px;
-    font-size: 14px;
-    font-weight: 700;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px; /* Increased to push content down */
+  z-index: 1000; /* Ensure modal is on top */
+}
+
+.modal-content {
+  background-color: #FFFFFF;
+  width: 100%;
+  max-width: 1200px; /* Adjust based on your design */
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  max-height: 80vh; /* Limit height and enable scrolling if needed */
+  overflow-y: auto;
+}
+
+.modal-search-bar {
+  display: flex;
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.search-item {
+  flex: 1;
+  padding: 15px;
+  border-right: 1px solid #F2F2F2;
+}
+
+.search-item:last-child {
+  border-right: none;
+}
+
+.search-item label {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.search-item input {
+  width: 100%;
+  border: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+
+
+.search-button svg {
+  margin-right: 10px;
+}
+
+.city-list, .guests-selector {
+  padding: 0 15px;
+}
+
+.city-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.city-item:hover {
+  background-color: #f7f7f7;
+}
+
+.city-item svg {
+  margin-right: 10px;
+  color: #4F4F4F;
+}
+
+.guest-type {
+  margin-bottom: 40px;
+}
+
+.guest-type h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.guest-type p {
+  font-size: 14px;
+  color: #828282;
+  margin-bottom: 12px;
+}
+
+.guest-counter {
+  display: flex;
+  align-items: center;
+}
+
+.guest-counter button {
+  width: 23px;
+  height: 23px;
+  border: 1px solid #828282;
+  background-color: white;
+  color: #828282;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.guest-counter span {
+  margin: 0 16px;
+  font-size: 14px;
+  font-weight: 700;
+}

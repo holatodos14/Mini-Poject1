@@ -48,7 +48,7 @@ function App() {
 
   return (
     <div className="app">
-      <Nav 
+      <Nav
         cities={cities}
         selectedCity={selectedCity}
         guestCount={guestCount}
